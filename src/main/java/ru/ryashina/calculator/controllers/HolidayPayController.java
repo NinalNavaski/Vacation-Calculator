@@ -22,14 +22,14 @@ public class HolidayPayController {
 	@Autowired
 	private HolidayPayService holidayPayService;
 	
-	@GetMapping(value = "/calculaсte", params = {"salary", "days"})
+	@GetMapping(value = "/calculate", params = {"salary", "days"})
 	public String calculateWithTwoParam(@RequestParam(value = "salary") @Min(0) Double salary,
 										@RequestParam(value = "days") @Min(0) Integer days) {
 
 		return holidayPayService.calculateHolidayPayAmountOfDays(salary, days);
 	}
 
-	@GetMapping(value = "/calculaсte", params = {"salary", "dayOn", "dayOff"})
+	@GetMapping(value = "/calculate", params = {"salary", "dayOn", "dayOff"})
 	public String calculateWithThreeParam(@RequestParam(value = "salary", required = false) @Min(0) Double salary,
 										  @RequestParam(value = "dayOn", required = false)
 										  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dayOn,
